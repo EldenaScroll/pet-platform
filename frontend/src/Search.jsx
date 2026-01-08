@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import { supabase } from './supabaseClient'
+import BookingModal from './BookingModal'
+
 
 export default function Search() {
   const [zipCode, setZipCode] = useState('')
@@ -7,6 +9,8 @@ export default function Search() {
   const [sitters, setSitters] = useState([])
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
+  const [selectedSitter, setSelectedSitter] = useState(null)
+
 
   const handleSearch = async (e) => {
     e.preventDefault()
@@ -118,10 +122,22 @@ export default function Search() {
               <button className="mt-4 w-full border border-blue-600 text-blue-600 py-2 rounded font-medium hover:bg-blue-50">
                 View Profile
               </button>
+              <button 
+                onClick={() => setSelectedSitter(sitter)} // triggers the booking modal
+                className="mt-4 w-full bg-blue-600 text-white py-2 rounded font-medium hover:bg-blue-700"
+              >
+                Book Now
+              </button>
             </div>
           ))}
         </div>
       </div>
+      {selectedSitter && (
+        <BookingModal 
+          sitter={selectedSitter} 
+          onClose={() => setSelectedSitter(null)} 
+        />
+      )}
     </div>
   )
 }
