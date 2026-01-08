@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import Login from './Login'
+import Search from './Search'
 
 // placeholder for dashboard
 function Dashboard() {
@@ -29,6 +30,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/search" element={<Search />} />
       </Routes>
     </BrowserRouter>
   )
