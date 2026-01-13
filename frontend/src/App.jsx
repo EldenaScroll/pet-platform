@@ -1,6 +1,8 @@
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import Login from './Login'
 import Search from './Search'
+import ActiveWalk from './ActiveWalk'
+
 
 // placeholder for dashboard
 function Dashboard() {
@@ -31,6 +33,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/search" element={<Search />} />
+        <Route path="/walk" element={<ActiveWalk />} />
       </Routes>
     </BrowserRouter>
   )
