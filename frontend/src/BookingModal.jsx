@@ -62,6 +62,24 @@ export default function BookingModal({ sitter, onClose }) {
         throw new Error(errorText || "Booking Failed")
       }
 
+      // handling payment via stripe
+      const savedBooking = await res.json() // get the booking JSON
+
+      // create stripe checkout session
+      const paymentRes = await fetch(`http://localhost:8081/api/payments/create-checkout-session?bookingId=${savedBooking.id}`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      })
+
+      if (paymentRes.ok) {
+        const stripeUrl = await paymentRes.text() // the URL string
+        window.location.href = stripeUrl
+      } else {
+        alert("Booking saved, but payment failed.")
+      }
+
       alert("Booking Request Sent!")
       onClose() // Close modal
 
