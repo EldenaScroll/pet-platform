@@ -1,26 +1,24 @@
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import Login from './Login'
+import Register from './Register'
+import Dashboard from './Dashboard'
 import Search from './Search'
 import ActiveWalk from './ActiveWalk'
 import Success from './Success'
 
-// placeholder for dashboard
-function Dashboard() {
-  return (
-    <div className="p-10">
-      <h1 className="text-3xl font-bold">Welcome to the Dashboard</h1>
-      <p>You are logged in.</p>
-    </div>
-  )
-}
 
 function Home() {
   return (
-    <div className="flex flex-col items-center justify-center h-screen space-y-4">
-      <h1 className="text-4xl font-bold text-blue-600">Temp</h1>
-      <Link to="/login" className="bg-blue-500 text-white px-6 py-2 rounded">
-        Login
-      </Link>
+    <div className="home-container">
+      <h1 className="home-title">Temp</h1>
+      <div className="home-buttons">
+        <Link to="/login" className="btn-login">
+          Login
+        </Link>
+        <Link to="/register" className="btn-register">
+          Register
+        </Link>
+      </div>
     </div>
   )
 }
@@ -31,6 +29,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/search" element={<Search />} />
         <Route path="/walk" element={<ActiveWalk />} />

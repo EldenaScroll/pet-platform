@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { supabase } from './supabaseClient'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 
 export default function Login() {
   const [email, setEmail] = useState('')
@@ -9,8 +9,7 @@ export default function Login() {
 
   const handleLogin = async (e) => {
     e.preventDefault()
-    
-    // call supabase auth
+
     const { data, error } = await supabase.auth.signInWithPassword({
       email,
       password,
@@ -19,34 +18,39 @@ export default function Login() {
     if (error) {
       alert(error.message)
     } else {
-      // sucessful login
       console.log("Logged in user:", data.user)
       alert("Login Successful!")
-      navigate('/dashboard') // go to dashboard after login
+      navigate('/dashboard')
     }
   }
 
   return (
-    <div className="flex h-screen items-center justify-center">
-      <div className="w-96 bg-white p-8 rounded shadow-lg">
-        <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">Pet Sitter Login</h2>
-        <form onSubmit={handleLogin} className="space-y-4">
+    <div className="page-center">
+      <div className="auth-card">
+        <h2 className="auth-title">Pet Sitter Login</h2>
+        <form onSubmit={handleLogin} className="auth-form">
           <input
             type="email"
             placeholder="Email"
-            className="w-full border p-2 rounded"
+            className="auth-input"
             onChange={(e) => setEmail(e.target.value)}
           />
           <input
             type="password"
             placeholder="Password"
-            className="w-full border p-2 rounded"
+            className="auth-input"
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700 font-bold">
+          <button className="auth-button">
             Sign In
           </button>
         </form>
+        <p className="auth-footer">
+          Don't have an account?{' '}
+          <Link to="/register" className="auth-link">
+            Register
+          </Link>
+        </p>
       </div>
     </div>
   )
