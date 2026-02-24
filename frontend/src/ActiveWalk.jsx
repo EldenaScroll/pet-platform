@@ -4,7 +4,7 @@ import { walkPath } from './walkPath'; // Import the data
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 
-const MAPBOX_TOKEN = "pk.eyJ1IjoiZWxkZW5zY3JvbGwiLCJhIjoiY21rYms1YXM0MDVmNDNocHg2ZGFhbzlieCJ9.E-Xr_7ci487dKKxlXMNSHA"; 
+const MAPBOX_TOKEN = import.meta.env.VITE_MAPBOX_TOKEN;
 
 export default function ActiveWalk() {
   const [viewState, setViewState] = useState({

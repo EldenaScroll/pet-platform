@@ -1,0 +1,506 @@
+{
+  "columns": [
+    {
+      "table_name": "bookings",
+      "column_name": "id",
+      "data_type": "uuid",
+      "is_nullable": "NO",
+      "column_default": "gen_random_uuid()"
+    },
+    {
+      "table_name": "bookings",
+      "column_name": "owner_id",
+      "data_type": "uuid",
+      "is_nullable": "NO",
+      "column_default": null
+    },
+    {
+      "table_name": "bookings",
+      "column_name": "sitter_id",
+      "data_type": "uuid",
+      "is_nullable": "NO",
+      "column_default": null
+    },
+    {
+      "table_name": "bookings",
+      "column_name": "pet_id",
+      "data_type": "uuid",
+      "is_nullable": "NO",
+      "column_default": null
+    },
+    {
+      "table_name": "bookings",
+      "column_name": "status",
+      "data_type": "text",
+      "is_nullable": "YES",
+      "column_default": "'pending'::booking_status"
+    },
+    {
+      "table_name": "bookings",
+      "column_name": "start_time",
+      "data_type": "timestamp with time zone",
+      "is_nullable": "NO",
+      "column_default": null
+    },
+    {
+      "table_name": "bookings",
+      "column_name": "end_time",
+      "data_type": "timestamp with time zone",
+      "is_nullable": "NO",
+      "column_default": null
+    },
+    {
+      "table_name": "bookings",
+      "column_name": "total_price",
+      "data_type": "numeric",
+      "is_nullable": "YES",
+      "column_default": null
+    },
+    {
+      "table_name": "bookings",
+      "column_name": "created_at",
+      "data_type": "timestamp with time zone",
+      "is_nullable": "NO",
+      "column_default": "timezone('utc'::text, now())"
+    },
+    {
+      "table_name": "geography_columns",
+      "column_name": "f_table_catalog",
+      "data_type": "name",
+      "is_nullable": "YES",
+      "column_default": null
+    },
+    {
+      "table_name": "geography_columns",
+      "column_name": "f_table_schema",
+      "data_type": "name",
+      "is_nullable": "YES",
+      "column_default": null
+    },
+    {
+      "table_name": "geography_columns",
+      "column_name": "f_table_name",
+      "data_type": "name",
+      "is_nullable": "YES",
+      "column_default": null
+    },
+    {
+      "table_name": "geography_columns",
+      "column_name": "f_geography_column",
+      "data_type": "name",
+      "is_nullable": "YES",
+      "column_default": null
+    },
+    {
+      "table_name": "geography_columns",
+      "column_name": "coord_dimension",
+      "data_type": "integer",
+      "is_nullable": "YES",
+      "column_default": null
+    },
+    {
+      "table_name": "geography_columns",
+      "column_name": "srid",
+      "data_type": "integer",
+      "is_nullable": "YES",
+      "column_default": null
+    },
+    {
+      "table_name": "geography_columns",
+      "column_name": "type",
+      "data_type": "text",
+      "is_nullable": "YES",
+      "column_default": null
+    },
+    {
+      "table_name": "geometry_columns",
+      "column_name": "f_table_catalog",
+      "data_type": "character varying",
+      "is_nullable": "YES",
+      "column_default": null
+    },
+    {
+      "table_name": "geometry_columns",
+      "column_name": "f_table_schema",
+      "data_type": "name",
+      "is_nullable": "YES",
+      "column_default": null
+    },
+    {
+      "table_name": "geometry_columns",
+      "column_name": "f_table_name",
+      "data_type": "name",
+      "is_nullable": "YES",
+      "column_default": null
+    },
+    {
+      "table_name": "geometry_columns",
+      "column_name": "f_geometry_column",
+      "data_type": "name",
+      "is_nullable": "YES",
+      "column_default": null
+    },
+    {
+      "table_name": "geometry_columns",
+      "column_name": "coord_dimension",
+      "data_type": "integer",
+      "is_nullable": "YES",
+      "column_default": null
+    },
+    {
+      "table_name": "geometry_columns",
+      "column_name": "srid",
+      "data_type": "integer",
+      "is_nullable": "YES",
+      "column_default": null
+    },
+    {
+      "table_name": "geometry_columns",
+      "column_name": "type",
+      "data_type": "character varying",
+      "is_nullable": "YES",
+      "column_default": null
+    },
+    {
+      "table_name": "pets",
+      "column_name": "id",
+      "data_type": "uuid",
+      "is_nullable": "NO",
+      "column_default": "gen_random_uuid()"
+    },
+    {
+      "table_name": "pets",
+      "column_name": "owner_id",
+      "data_type": "uuid",
+      "is_nullable": "NO",
+      "column_default": null
+    },
+    {
+      "table_name": "pets",
+      "column_name": "name",
+      "data_type": "text",
+      "is_nullable": "NO",
+      "column_default": null
+    },
+    {
+      "table_name": "pets",
+      "column_name": "breed",
+      "data_type": "text",
+      "is_nullable": "YES",
+      "column_default": null
+    },
+    {
+      "table_name": "pets",
+      "column_name": "age",
+      "data_type": "integer",
+      "is_nullable": "YES",
+      "column_default": null
+    },
+    {
+      "table_name": "pets",
+      "column_name": "personality_tags",
+      "data_type": "ARRAY",
+      "is_nullable": "YES",
+      "column_default": null
+    },
+    {
+      "table_name": "pets",
+      "column_name": "image_url",
+      "data_type": "text",
+      "is_nullable": "YES",
+      "column_default": null
+    },
+    {
+      "table_name": "pets",
+      "column_name": "created_at",
+      "data_type": "timestamp with time zone",
+      "is_nullable": "NO",
+      "column_default": "timezone('utc'::text, now())"
+    },
+    {
+      "table_name": "profiles",
+      "column_name": "id",
+      "data_type": "uuid",
+      "is_nullable": "NO",
+      "column_default": null
+    },
+    {
+      "table_name": "profiles",
+      "column_name": "email",
+      "data_type": "text",
+      "is_nullable": "NO",
+      "column_default": null
+    },
+    {
+      "table_name": "profiles",
+      "column_name": "role",
+      "data_type": "text",
+      "is_nullable": "YES",
+      "column_default": "'owner'::text"
+    },
+    {
+      "table_name": "profiles",
+      "column_name": "created_at",
+      "data_type": "timestamp with time zone",
+      "is_nullable": "NO",
+      "column_default": "timezone('utc'::text, now())"
+    },
+    {
+      "table_name": "profiles",
+      "column_name": "full_name",
+      "data_type": "text",
+      "is_nullable": "YES",
+      "column_default": null
+    },
+    {
+      "table_name": "profiles",
+      "column_name": "zip_code",
+      "data_type": "text",
+      "is_nullable": "YES",
+      "column_default": null
+    },
+    {
+      "table_name": "profiles",
+      "column_name": "ssn_last_4",
+      "data_type": "text",
+      "is_nullable": "YES",
+      "column_default": null
+    },
+    {
+      "table_name": "profiles",
+      "column_name": "latitude",
+      "data_type": "double precision",
+      "is_nullable": "YES",
+      "column_default": null
+    },
+    {
+      "table_name": "profiles",
+      "column_name": "longitude",
+      "data_type": "double precision",
+      "is_nullable": "YES",
+      "column_default": null
+    },
+    {
+      "table_name": "profiles",
+      "column_name": "location",
+      "data_type": "USER-DEFINED",
+      "is_nullable": "YES",
+      "column_default": null
+    },
+    {
+      "table_name": "services",
+      "column_name": "id",
+      "data_type": "uuid",
+      "is_nullable": "NO",
+      "column_default": "gen_random_uuid()"
+    },
+    {
+      "table_name": "services",
+      "column_name": "sitter_id",
+      "data_type": "uuid",
+      "is_nullable": "NO",
+      "column_default": null
+    },
+    {
+      "table_name": "services",
+      "column_name": "service_type",
+      "data_type": "text",
+      "is_nullable": "NO",
+      "column_default": null
+    },
+    {
+      "table_name": "services",
+      "column_name": "price",
+      "data_type": "numeric",
+      "is_nullable": "NO",
+      "column_default": null
+    },
+    {
+      "table_name": "services",
+      "column_name": "service_radius",
+      "data_type": "integer",
+      "is_nullable": "YES",
+      "column_default": "5"
+    },
+    {
+      "table_name": "services",
+      "column_name": "created_at",
+      "data_type": "timestamp with time zone",
+      "is_nullable": "NO",
+      "column_default": "timezone('utc'::text, now())"
+    },
+    {
+      "table_name": "spatial_ref_sys",
+      "column_name": "srid",
+      "data_type": "integer",
+      "is_nullable": "NO",
+      "column_default": null
+    },
+    {
+      "table_name": "spatial_ref_sys",
+      "column_name": "auth_name",
+      "data_type": "character varying",
+      "is_nullable": "YES",
+      "column_default": null
+    },
+    {
+      "table_name": "spatial_ref_sys",
+      "column_name": "auth_srid",
+      "data_type": "integer",
+      "is_nullable": "YES",
+      "column_default": null
+    },
+    {
+      "table_name": "spatial_ref_sys",
+      "column_name": "srtext",
+      "data_type": "character varying",
+      "is_nullable": "YES",
+      "column_default": null
+    },
+    {
+      "table_name": "spatial_ref_sys",
+      "column_name": "proj4text",
+      "data_type": "character varying",
+      "is_nullable": "YES",
+      "column_default": null
+    }
+  ],
+  "constraints": [
+    {
+      "table_name": "spatial_ref_sys",
+      "column_name": "srid",
+      "constraint_type": "PRIMARY KEY",
+      "foreign_table_name": null,
+      "foreign_column_name": null
+    },
+    {
+      "table_name": "pets",
+      "column_name": "id",
+      "constraint_type": "PRIMARY KEY",
+      "foreign_table_name": "pets",
+      "foreign_column_name": "id"
+    },
+    {
+      "table_name": "services",
+      "column_name": "id",
+      "constraint_type": "PRIMARY KEY",
+      "foreign_table_name": "services",
+      "foreign_column_name": "id"
+    },
+    {
+      "table_name": "bookings",
+      "column_name": "id",
+      "constraint_type": "PRIMARY KEY",
+      "foreign_table_name": "bookings",
+      "foreign_column_name": "id"
+    },
+    {
+      "table_name": "bookings",
+      "column_name": "pet_id",
+      "constraint_type": "FOREIGN KEY",
+      "foreign_table_name": "pets",
+      "foreign_column_name": "id"
+    },
+    {
+      "table_name": "profiles",
+      "column_name": "id",
+      "constraint_type": "PRIMARY KEY",
+      "foreign_table_name": "profiles",
+      "foreign_column_name": "id"
+    },
+    {
+      "table_name": "profiles",
+      "column_name": "id",
+      "constraint_type": "FOREIGN KEY",
+      "foreign_table_name": null,
+      "foreign_column_name": null
+    },
+    {
+      "table_name": "pets",
+      "column_name": "owner_id",
+      "constraint_type": "FOREIGN KEY",
+      "foreign_table_name": "profiles",
+      "foreign_column_name": "id"
+    },
+    {
+      "table_name": "services",
+      "column_name": "sitter_id",
+      "constraint_type": "FOREIGN KEY",
+      "foreign_table_name": "profiles",
+      "foreign_column_name": "id"
+    },
+    {
+      "table_name": "bookings",
+      "column_name": "owner_id",
+      "constraint_type": "FOREIGN KEY",
+      "foreign_table_name": "profiles",
+      "foreign_column_name": "id"
+    },
+    {
+      "table_name": "bookings",
+      "column_name": "sitter_id",
+      "constraint_type": "FOREIGN KEY",
+      "foreign_table_name": "profiles",
+      "foreign_column_name": "id"
+    }
+  ],
+  "policies": [
+    {
+      "tablename": "profiles",
+      "policyname": "Users can read own profile",
+      "operation": "SELECT",
+      "qual": "(auth.uid() = id)",
+      "with_check": null
+    },
+    {
+      "tablename": "profiles",
+      "policyname": "Users can update own profile",
+      "operation": "UPDATE",
+      "qual": "(auth.uid() = id)",
+      "with_check": null
+    }
+  ],
+  "triggers": [],
+  "indexes": [
+    {
+      "tablename": "spatial_ref_sys",
+      "indexname": "spatial_ref_sys_pkey",
+      "indexdef": "CREATE UNIQUE INDEX spatial_ref_sys_pkey ON public.spatial_ref_sys USING btree (srid)"
+    },
+    {
+      "tablename": "pets",
+      "indexname": "pets_pkey",
+      "indexdef": "CREATE UNIQUE INDEX pets_pkey ON public.pets USING btree (id)"
+    },
+    {
+      "tablename": "services",
+      "indexname": "services_pkey",
+      "indexdef": "CREATE UNIQUE INDEX services_pkey ON public.services USING btree (id)"
+    },
+    {
+      "tablename": "bookings",
+      "indexname": "bookings_pkey",
+      "indexdef": "CREATE UNIQUE INDEX bookings_pkey ON public.bookings USING btree (id)"
+    },
+    {
+      "tablename": "profiles",
+      "indexname": "profiles_pkey",
+      "indexdef": "CREATE UNIQUE INDEX profiles_pkey ON public.profiles USING btree (id)"
+    },
+    {
+      "tablename": "profiles",
+      "indexname": "profiles_geo_index",
+      "indexdef": "CREATE INDEX profiles_geo_index ON public.profiles USING gist (location)"
+    }
+  ],
+  "views": [
+    {
+      "view_name": "geography_columns",
+      "view_definition": null
+    },
+    {
+      "view_name": "geometry_columns",
+      "view_definition": null
+    }
+  ]
+}
