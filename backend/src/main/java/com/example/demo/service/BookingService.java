@@ -42,10 +42,23 @@ public class BookingService {
     }
 
     public List<Booking> getMyBookings(UUID userId) {
-        // returns both bookings where you are the owner OR the sitter
-        List<Booking> ownerBookings = bookingRepository.findByOwnerId(userId);
-        List<Booking> sitterBookings = bookingRepository.findBySitterId(userId);
-        ownerBookings.addAll(sitterBookings);
-        return ownerBookings;
+        // returns bookings where you are the owner
+        return bookingRepository.findByOwnerId(userId);
+    }
+
+    public List<Booking> getSitterBookings(UUID sitterId) {
+        return bookingRepository.findBySitterId(sitterId);
+    }
+
+    public Booking updateBookingStatus(UUID bookingId, BookingStatus status, UUID sitterId) {
+        Booking booking = bookingRepository.findById(bookingId)
+                .orElseThrow(() -> new RuntimeException("Booking not found"));
+
+        if (!booking.getSitterId().equals(sitterId)) {
+            throw new RuntimeException("Only the assigned sitter can update this booking");
+        }
+
+        booking.setStatus(status);
+        return bookingRepository.save(booking);
     }
 }

@@ -27,5 +27,30 @@ public class PetService {
         pet.setOwnerId(ownerId);
         return petRepository.save(pet);
     }
-    
+
+    public Pet updatePet(UUID petId, Pet updates, UUID ownerId) {
+        Pet pet = petRepository.findById(petId)
+                .orElseThrow(() -> new RuntimeException("Pet not found"));
+        
+        if (!pet.getOwnerId().equals(ownerId)) {
+            throw new RuntimeException("You can only edit your own pets");
+        }
+
+        if (updates.getName() != null) pet.setName(updates.getName());
+        if (updates.getBreed() != null) pet.setBreed(updates.getBreed());
+        if (updates.getAge() != null) pet.setAge(updates.getAge());
+
+        return petRepository.save(pet);
+    }
+
+    public void deletePet(UUID petId, UUID ownerId) {
+        Pet pet = petRepository.findById(petId)
+                .orElseThrow(() -> new RuntimeException("Pet not found"));
+        
+        if (!pet.getOwnerId().equals(ownerId)) {
+            throw new RuntimeException("You can only delete your own pets");
+        }
+
+        petRepository.delete(pet);
+    }
 }

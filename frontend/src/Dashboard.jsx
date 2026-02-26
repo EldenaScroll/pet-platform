@@ -50,30 +50,60 @@ export default function Dashboard() {
             </div>
 
             <div className="dashboard-grid">
-                <Link to="/search" className="dashboard-card">
-                    <span className="dashboard-card-icon">🔍</span>
-                    <h3>Find a Sitter</h3>
-                    <p>Search for pet sitters near you</p>
+                {/* Profile — both roles */}
+                <Link to="/profile" className="dashboard-card">
+                    <span className="dashboard-card-icon">👤</span>
+                    <h3>My Profile</h3>
+                    <p>Edit your profile info</p>
                 </Link>
 
-                <Link to="/walk" className="dashboard-card">
-                    <span className="dashboard-card-icon">🚶</span>
-                    <h3>Active Walk</h3>
-                    <p>Track your pet's current walk</p>
-                </Link>
+                {/* Owner-specific cards */}
+                {role === 'owner' && (
+                    <>
+                        <Link to="/search" className="dashboard-card">
+                            <span className="dashboard-card-icon">🔍</span>
+                            <h3>Find a Sitter</h3>
+                            <p>Search for pet sitters near you</p>
+                        </Link>
 
-                <div className="dashboard-card">
-                    <span className="dashboard-card-icon">📋</span>
-                    <h3>My Bookings</h3>
-                    <p>View your upcoming bookings</p>
-                </div>
+                        <Link to="/my-pets" className="dashboard-card">
+                            <span className="dashboard-card-icon">🐶</span>
+                            <h3>My Pets</h3>
+                            <p>Manage your pet profiles</p>
+                        </Link>
 
-                <div className="dashboard-card">
-                    <span className="dashboard-card-icon">🐶</span>
-                    <h3>My Pets</h3>
-                    <p>Manage your pet profiles</p>
-                </div>
+                        <Link to="/my-bookings" className="dashboard-card">
+                            <span className="dashboard-card-icon">📋</span>
+                            <h3>My Bookings</h3>
+                            <p>View your upcoming bookings</p>
+                        </Link>
+
+                        <Link to="/walk" className="dashboard-card">
+                            <span className="dashboard-card-icon">🚶</span>
+                            <h3>Active Walk</h3>
+                            <p>Track your pet's current walk</p>
+                        </Link>
+                    </>
+                )}
+
+                {/* Sitter-specific cards */}
+                {role === 'sitter' && (
+                    <>
+                        <Link to="/sitter-requests" className="dashboard-card">
+                            <span className="dashboard-card-icon">📬</span>
+                            <h3>Incoming Requests</h3>
+                            <p>View and respond to booking requests</p>
+                        </Link>
+
+                        <Link to="/walk" className="dashboard-card">
+                            <span className="dashboard-card-icon">🚶</span>
+                            <h3>Active Walk</h3>
+                            <p>Start or track a walk in progress</p>
+                        </Link>
+                    </>
+                )}
             </div>
         </div>
     )
 }
+

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { supabase } from './supabaseClient'
 import BookingModal from './BookingModal'
 import SitterMap from './SitterMap';
@@ -20,7 +21,7 @@ export default function Search() {
     try {
       // Get the current User's Token
       const { data: { session } } = await supabase.auth.getSession()
-      
+
       if (!session) {
         throw new Error("You must be logged in to search!")
       }
@@ -55,9 +56,10 @@ export default function Search() {
       {/* Header / Search Bar */}
       <div className="bg-white shadow p-4 z-10">
         <div className="max-w-7xl mx-auto flex gap-4 items-center">
+          <Link to="/dashboard" className="back-link">← Dashboard</Link>
           <h1 className="text-xl font-bold text-gray-800">Wag & Walk</h1>
           <form onSubmit={handleSearch} className="flex gap-2 flex-1 max-w-2xl">
-            <input 
+            <input
               type="text" placeholder="Zip Code" value={zipCode} onChange={e => setZipCode(e.target.value)}
               className="border p-2 rounded w-32"
             />
@@ -74,15 +76,15 @@ export default function Search() {
 
       {/* Main Content: Split View */}
       <div className="flex-1 flex overflow-hidden">
-        
+
         {/* Left: Scrollable List */}
         <div className="w-1/3 min-w-[400px] overflow-y-auto p-4 border-r bg-white">
           <h2 className="text-gray-500 mb-4">{sitters.length} Sitters Nearby</h2>
-          
+
           <div className="space-y-4">
             {sitters.map((sitter) => (
-              <div 
-                key={sitter.id} 
+              <div
+                key={sitter.id}
                 onClick={() => setSelectedSitter(sitter)} // Clicking card selects sitter
                 className={`p-4 rounded-lg border transition cursor-pointer flex gap-4 ${selectedSitter?.id === sitter.id ? 'border-blue-500 bg-blue-50 ring-2 ring-blue-200' : 'hover:shadow-md border-gray-200'}`}
               >
@@ -90,7 +92,7 @@ export default function Search() {
                 <div>
                   <h3 className="font-bold text-gray-800">{sitter.email.split('@')[0]}</h3>
                   <p className="text-sm text-gray-500">5 star sitter</p>
-                  <button 
+                  <button
                     onClick={(e) => { e.stopPropagation(); setSelectedSitter(sitter); }}
                     className="mt-2 text-blue-600 text-sm font-semibold hover:underline"
                   >
@@ -104,20 +106,20 @@ export default function Search() {
 
         {/* Right: Fixed Map */}
         <div className="flex-1 relative p-4 bg-gray-100">
-            <SitterMap 
-                sitters={sitters} 
-                selectedSitter={selectedSitter} 
-                onSelectSitter={setSelectedSitter} 
-            />
+          <SitterMap
+            sitters={sitters}
+            selectedSitter={selectedSitter}
+            onSelectSitter={setSelectedSitter}
+          />
         </div>
 
       </div>
 
       {/* Booking Modal*/}
       {selectedSitter && (
-        <BookingModal 
-          sitter={selectedSitter} 
-          onClose={() => setSelectedSitter(null)} 
+        <BookingModal
+          sitter={selectedSitter}
+          onClose={() => setSelectedSitter(null)}
         />
       )}
     </div>
@@ -140,7 +142,7 @@ export default function Search() {
   //             required
   //           />
   //         </div>
-          
+
   //         <div className="w-32">
   //           <label className="block text-sm font-medium text-gray-700 mb-1">Distance: {radius} mi</label>
   //           <input 

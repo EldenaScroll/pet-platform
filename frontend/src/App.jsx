@@ -5,6 +5,10 @@ import Dashboard from './Dashboard'
 import Search from './Search'
 import ActiveWalk from './ActiveWalk'
 import Success from './Success'
+import MyProfile from './MyProfile'
+import MyPets from './MyPets'
+import MyBookings from './MyBookings'
+import SitterRequests from './SitterRequests'
 
 
 function Home() {
@@ -34,6 +38,10 @@ function App() {
         <Route path="/search" element={<Search />} />
         <Route path="/walk" element={<ActiveWalk />} />
         <Route path="/success" element={<Success />} />
+        <Route path="/profile" element={<MyProfile />} />
+        <Route path="/my-pets" element={<MyPets />} />
+        <Route path="/my-bookings" element={<MyBookings />} />
+        <Route path="/sitter-requests" element={<SitterRequests />} />
       </Routes>
     </BrowserRouter>
   )
